@@ -14,8 +14,8 @@ Keeping track of tournaments can get messy and, at times, can even ruin the whol
 
 * Support for various sports (football, basketball, volleybal...)
 * Support for different tournament formats (shown later in the document)
-*Accessibility and easy-to-use interface
-*Nice graphs and whatnot
+* Accessibility and easy-to-use interface
+* Nice graphs and whatnot
 
 All of these goals should serve as metrics of success - the more sports and formats are supported while not making the whole software a mess, the better.
 
