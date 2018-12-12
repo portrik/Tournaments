@@ -2,21 +2,40 @@
 
 Software for planning and keeping score of tournaments in various formats.
 
-## Vision
+## Overview
 
-Tournaments will be able to plot a tournament in multiple formats and keep the scores for teams or players.
+Tournaments is a software meant to plot and keep track of competitions in various sports. 
 
-Tournaments should be able to provide random seeding, history, presets and maybe even tournament prediction.
+### Problem
 
-All of this should be packaged in nice and easy-to-understand interface.
+Keeping track of tournaments can get messy and, at times, can even ruin the whole competition. That's where Tournaments comes in.
 
-## Problem
+### Goals
 
-The problem Tournaments will solve is providing accessible and easy way to keep track of tournaments in various sports.
+* Support for various sports (football, basketball, volleybal...)
+* Support for different tournament formats (shown later in the document)
+*Accessibility and easy-to-use interface
+*Nice graphs and whatnot
 
-## Resources
+All of these goals should serve as metrics of success - the more sports and formats are supported while not making the whole software a mess, the better.
 
-Tournaments will most probably be built with React and other JavaScript and HTML frameworks to make it beautiful.
+## Current Solutions
+
+### Web-based or mobile apps
+
+They can be hard to use, ugly or just old and unintuitive. Sometimes all at the same time.
+
+### Excel Spredsheets
+
+They are infuriating. They are old school. They are not so pretty.
+
+### Handwritten tables
+
+Same as Excel. But worse. Much worse.
+
+## Proposed Solution
+
+Nice and clean web-app made with React and other frameworks. Choosing a format, sport, setting up competitors and going through the whole tournament should be easy and fun.
 
 ## Tournament systems
 
