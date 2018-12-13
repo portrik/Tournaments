@@ -19,6 +19,12 @@ Keeping track of tournaments can get messy and, at times, can even ruin the whol
 
 All of these goals should serve as metrics of success - the more sports and formats are supported while not making the whole software a mess, the better.
 
+#### V1.0
+
+* Swiss-system
+* Web based
+* Basic UI
+
 ## Current Solutions
 
 ### Web-based or mobile apps
