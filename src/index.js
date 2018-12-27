@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css'
-import AddTeam from './AddTeam'
+import HomePage from './Components/HomePage'
 
-ReactDOM.render(<AddTeam/>, document.getElementById('root'));
+ReactDOM.render(<HomePage/>, document.getElementById('root'));

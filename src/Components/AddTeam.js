@@ -6,7 +6,7 @@ class AddTeam extends Component
     constructor(props)
     {
         super(props);
-        this.state = {name: ''};
+        this.state = {name: 'Nice Team Name'};
         this.state = {teamColor: '#f44336'};
 
         this.handleSubmit = this.handleSubmit.bind(this);
