@@ -1,6 +1,14 @@
 import React from 'react';
+import 'typeface-roboto';
 import ReactDOM from 'react-dom';
-import HomePage from './Components/HomePage';
-import './styles.css';
+import Button from '@material-ui/core/Button';
 
-ReactDOM.render(<HomePage/>, document.getElementById('root'));
+function App() {
+  return (
+    <Button variant="contained" color="primary">
+      Hello World
+    </Button>
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
