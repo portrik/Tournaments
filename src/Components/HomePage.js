@@ -1,7 +1,7 @@
-import React, {PureComponent} from 'react';
-import AddTeam from './AddTeam';
+import React, {Component} from 'react';
+import TeamList from './TeamList';
 
-class HomePage extends PureComponent
+class HomePage extends Component
 {
 
     render()
@@ -11,11 +11,7 @@ class HomePage extends PureComponent
                 <h1>Tournaments</h1>
 
                 <div>
-                    <h2>Add Teams</h2>
-                    <AddTeam />
-                    <AddTeam />
-                    <AddTeam />
-                    <AddTeam />
+                    <TeamList></TeamList>
                 </div>
             </div>
         );
