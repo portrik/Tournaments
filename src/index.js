@@ -1,13 +1,13 @@
 import React from 'react';
-import 'typeface-roboto';
 import ReactDOM from 'react-dom';
-import Button from '@material-ui/core/Button';
+import Material from './Components/Material'
+import Teams from './Components/Teams'
 
 function App() {
   return (
-    <Button variant="contained" color="primary">
-      Hello World
-    </Button>
+      <Material>
+        <Teams />
+      </Material>
   );
 }
 
