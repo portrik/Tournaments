@@ -1,5 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HomePage from './Components/HomePage'
+import Material from './Components/Material'
+import Teams from './Components/Teams'
 
-ReactDOM.render(<HomePage/>, document.getElementById('root'));
+function App() {
+  return (
+      <Material>
+        <Teams />
+      </Material>
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
