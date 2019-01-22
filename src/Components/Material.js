@@ -3,18 +3,19 @@ import Theme from './Theme'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import React from 'react';
 
+// The Material components renders the navbar and Grid container for it's child components
 class Material extends React.Component {
     render() {
         return (
             <Theme>
                 <CssBaseline />
-                <AppBar position="static" style={{ margin: 0 }}>
+                <AppBar position="static">
                     <Toolbar>
                         <Typography variant="h6" color="inherit">Tournaments</Typography>
                     </Toolbar>
                 </AppBar>
-                <Grid container direction="row" justify="center" alignItems="center">
-                {this.props.children}
+                <Grid container>
+                    {this.props.children}
                 </Grid>
             </Theme>
         )
