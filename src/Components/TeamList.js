@@ -7,12 +7,12 @@ import Delete from '@material-ui/icons/Delete'
 class TeamList extends React.Component {
     constructor(props) {
         super(props);
-        this.createTeams = this.createTeam.bind(this);
+        this.createTeam = this.createTeam.bind(this);
     }
 
     // Returns the actual JSX element a team will be rendered as
     createTeam(team) {
-        return <ListItem key={team.key}>{team.name}<Delete onClick={() => this.handleDelete(team.key)} /></ListItem>
+        return <ListItem key={team.key}>{team.name}<Delete className="delete" onClick={() => this.handleDelete(team.key)} /></ListItem>
     }
 
     // Handles the deletion of a team

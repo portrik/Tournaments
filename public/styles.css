@@ -3,9 +3,9 @@
   flex-direction: row;
 }
 
-AppBar
+.delete
 {
-  margin: 0;
+  cursor: pointer;
 }
 
 .round {
