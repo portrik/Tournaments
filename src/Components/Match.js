@@ -5,14 +5,13 @@ class Match extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {value: ""};
+        this.state = { value: "" };
 
         this.handleScoreChange = this.handleScoreChange.bind(this);
     }
 
-    handleScoreChange(e)
-    {
-        this.setState({value: e.target.value});
+    handleScoreChange(e) {
+        this.setState({ value: e.target.value });
     }
 
     render() {
@@ -29,6 +28,6 @@ class Match extends React.Component {
             </div>
         );
     }
-}
+};
 
 export default Match
