@@ -1,44 +1,54 @@
 # Tournaments
 
-Software for planning and keeping score of tournaments in various formats.
+Software for planning and keeping score of tournaments in the spider format.
+
+It was created as school project at [MFF UK](https://mff.cuni.cz).
+
+Live demo can be found at [Github pages](https://tehsirius.github.io/Tournaments/).
 
 ## Overview
 
-Tournaments is a software meant to plot and keep track of competitions in various sports. 
+Tournaments is an app created for generating a tournament bracket in the spider format. It can handle teams from various sports and is fully interactive. It is hosted fully on the internet and the whole algorithm is executed on the client side. 
 
-### Problem
+It is created with JavaScript and mainly the React framework. The design is created with the [Material UI](https://material-ui.com/).
 
-Keeping track of tournaments can get messy and, at times, can even ruin the whole competition. That's where Tournaments comes in.
+## Algorithm
 
-### Goals
+The whole app is created with various components. They serve as a building blocks that are assembled and rendered with React.
 
-* Support for various sports (football, basketball, volleybal...)
-* Support for different tournament formats (shown later in the document)
-* Accessibility and easy-to-use interface
-* Nice graphs and whatnot
+### Index.js
 
-All of these goals should serve as metrics of success - the more sports and formats are supported while not making the whole software a mess, the better.
+The main component serves as an entry point for the whole app. It targets a selected div element in the frontend facing HTML file and renders it's contents inside it.
 
-#### V1.0
+It calls the Material wrapper component, which houses the Material theme hosted inside Theme.js, the toolbar, and CSSBaseline component for nicer looks.
 
-* Swiss-system
-* Web based
-* Basic UI
+### Teams.js
 
-## Current Solutions
+This component handles all interaction with the user. It lets him add and remove team names. It renders the list of the teams through TeamList.js.
 
-### Web-based or mobile apps
+When the user is done with adding new teams, it passes the names to Bracket.js, which handles the creation of the bracket.
 
-They can be hard to use, ugly or just old and unintuitive. Sometimes all at the same time.
+### Bracket.js
 
-### Excel Spredsheets
+//TODO
 
-They are infuriating. They are old school. They are not so pretty.
 
-### Handwritten tables
+## Input data
 
-Same as Excel. But worse. Much worse.
+### When choosing teams
 
-## Proposed Solution
+* A team name can be typed into the textfield with label *Enter a team name*. The name can be madeup of letters, numbers or symbols. Minimum length is 1 and the maximum is 20
+* When the name is chosen, it can be added to the list with the button labeled *Add team*
+* Team name can be deleted with the trashcan button next to the name
+* Bracket can be created with the button labeled *Create bracket*
 
-Nice and clean web-app made with React and other frameworks. Choosing a format, sport, setting up competitors and going through the whole tournament should be easy and fun.
+### Choosing winners
+
+* All matches are divided into the tournament spider bracket
+* Unplayed matches have no winner
+* Winner will be chosen after both scores are set
+* Score can be changed by clicking on the input field with the number (Scores can be between 0 and 1 000)
+
+## Conclusion
+
+//TODO

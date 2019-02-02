@@ -1,3 +1,8 @@
+// Tournaments
+// Created by Patrik Dvořáček, Matematicko-fyzikální fakulta UK
+// Zimní semestr 2018/2019
+// Programování NPRG030
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Material from './Components/Material'

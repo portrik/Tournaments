@@ -1,6 +1,7 @@
 import React from 'react'
 import { Radio, RadioGroup, FormControlLabel, FormControl } from '@material-ui/core'
 
+// Match represents a game between two teams
 class Match extends React.Component {
     constructor(props) {
         super(props);
@@ -9,18 +10,21 @@ class Match extends React.Component {
 
         this.handleScoreChange = this.handleScoreChange.bind(this);
 
+        // If second team is not set, the first one is automatically chosen as a winner
         if (this.props.bottomTeam === "") {
             this.setState({ value: this.props.topTeam });
         }
     }
 
+    // handleScoreChange sets the new value
+    // And calls upon the parent component to handle the change
     handleScoreChange(e) {
         this.setState({ value: e.target.value });
-
         this.props.scoreChange(e.target.value, this.props.next);
-
     }
 
+    // In case of no second team, the render function
+    // Renders a disabled field
     render() {
         return (
             <div>
