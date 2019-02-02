@@ -8,10 +8,17 @@ class Match extends React.Component {
         this.state = { value: "" };
 
         this.handleScoreChange = this.handleScoreChange.bind(this);
+
+        if (this.props.bottomTeam === "") {
+            this.setState({ value: this.props.topTeam });
+        }
     }
 
     handleScoreChange(e) {
         this.setState({ value: e.target.value });
+
+        this.props.scoreChange(e.target.value, this.props.next);
+
     }
 
     render() {
@@ -22,7 +29,7 @@ class Match extends React.Component {
                     <RadioGroup aria-label="Match" value={this.state.value} onChange={this.handleScoreChange}>
                         <FormControlLabel value={this.props.topTeam} control={<Radio />} label={this.props.topTeam} />
                         <span className="game game-spacer">&nbsp;</span>
-                        <FormControlLabel value={this.props.bottomTeam} control={<Radio />} label={this.props.bottomTeam} />
+                        {this.props.bottomTeam === "" ? <FormControlLabel disabled value="No Oponent" control={<Radio />} label="No Oponent" /> : <FormControlLabel value={this.props.bottomTeam} control={<Radio />} label={this.props.bottomTeam} />}
                     </RadioGroup>
                 </FormControl>
             </div>

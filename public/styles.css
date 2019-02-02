@@ -8,6 +8,12 @@
   cursor: pointer;
 }
 
+.listOfTeams
+{
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
 .round {
   display: flex;
   flex-direction: column;
