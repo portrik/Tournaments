@@ -1,5 +1,5 @@
-import React from 'react'
-import Match from './Match'
+import React from 'react';
+import Match from './Match';
 import { Typography, Grid } from '@material-ui/core';
 
 // Bracket is the main component of the whole app
@@ -14,22 +14,24 @@ class Bracket extends React.Component {
         this.state = {
             teams: [],
             numOfTeams: Object.keys(this.props.teams).length,
-            byes: 0,
         }
 
         this.addTempTeams();
-        this.setState({byes: this.calculateByes()});
         this.createRound = this.createRound.bind(this);
         this.createBracket = this.createBracket.bind(this);
         this.handleScoreChange = this.handleScoreChange.bind(this);
     }
 
     // Calculates the number of byes games needed to fit a bracket
-    calculateByes()
-    {  
-        for(var i = 2; i < this.state.numOfTeams; i *= 2);
+    calculateByes() {
+        for (var i = 2; i < this.state.numOfTeams; i *= 2);
 
-        return i - this.state.numOfTeams;
+        if (this.state.numOfTeams % i === 0) {
+            return 0;
+        }
+        else {
+            return this.state.numOfTeams - (i / 2);
+        }
     }
 
     // To make the whole app more user friendly
@@ -58,7 +60,8 @@ class Bracket extends React.Component {
 
         for (var i = start; i < end; i += 2) {
             round.push(<span className="roundSpacer">&nbsp;</span>);
-            round.push(<Match className="" topTeam={this.state.teams[i]} bottomTeam={this.state.teams[i + 1]} scoreChange={this.handleScoreChange} next={end - start + tempStart} />);
+            round.push(<Match topTeam={this.state.teams[i]} bottomTeam={this.state.teams[i + 1]} scoreChange={this.handleScoreChange} next={end - start + tempStart} />);
+
             ++tempStart;
         }
 

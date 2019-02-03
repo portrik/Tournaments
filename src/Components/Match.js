@@ -58,7 +58,7 @@ class Match extends React.Component {
     // Renders a disabled field
     render() {
         return (
-            <Grid container direction="column" justify="space-between" alignItems="center" className="matchWrapper">
+            <Grid container direction="column" justify="space-between" alignItems="flex-end" className="matchWrapper">
                 <TextField variant="filled" label={this.props.topTeam} value={this.state.topScore} onChange={this.handleTopScoreChange} onBlur={this.handleScoreChange}/>
                 {this.props.bottomTeam === "" ?
                     <TextField disabled label="Empty Seed" value={this.state.bottomScore}/> :
