@@ -24,13 +24,14 @@ It calls the Material wrapper component, which houses the Material theme hosted 
 
 ### Teams.js
 
-This component handles all interaction with the user. It lets him add and remove team names. It renders the list of the teams through TeamList.js.
+This component handles most of the interaction with the user. It lets him add and remove team names. It renders the list of the teams through TeamList.js.
 
 When the user is done with adding new teams, it passes the names to Bracket.js, which handles the creation of the bracket.
 
 ### Bracket.js
 
-//TODO
+Bracket houses the main logic of the app. When passed the team names, it creates filler team names (Winner of match #) and divides them into rounds.
+In case the number of selected teams is odd, bye rounds are positioned at the start of the bracket to fit the bracket format.
 
 
 ## Input data
@@ -38,9 +39,9 @@ When the user is done with adding new teams, it passes the names to Bracket.js, 
 ### When choosing teams
 
 * A team name can be typed into the textfield with label *Enter a team name*. The name can be madeup of letters, numbers or symbols. Minimum length is 1 and the maximum is 20
-* When the name is chosen, it can be added to the list with the button labeled *Add team*
+* When the name is chosen, it can be added to the list with the button labeled *Add Team*
 * Team name can be deleted with the trashcan button next to the name
-* Bracket can be created with the button labeled *Create bracket*
+* Bracket can be created with the button labeled *Create Tournament*
 
 ### Choosing winners
 

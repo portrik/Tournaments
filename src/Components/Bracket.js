@@ -1,5 +1,6 @@
 import React from 'react'
 import Match from './Match'
+import { Typography, Grid } from '@material-ui/core';
 
 // Bracket is the main component of the whole app
 // It renders the tournament bracket and it also carries the logic of the app
@@ -13,19 +14,28 @@ class Bracket extends React.Component {
         this.state = {
             teams: [],
             numOfTeams: Object.keys(this.props.teams).length,
+            byes: 0,
         }
 
         this.addTempTeams();
+        this.setState({byes: this.calculateByes()});
         this.createRound = this.createRound.bind(this);
         this.createBracket = this.createBracket.bind(this);
         this.handleScoreChange = this.handleScoreChange.bind(this);
+    }
+
+    // Calculates the number of byes games needed to fit a bracket
+    calculateByes()
+    {  
+        for(var i = 2; i < this.state.numOfTeams; i *= 2);
+
+        return i - this.state.numOfTeams;
     }
 
     // To make the whole app more user friendly
     // addTempTeams creates temporary teams, which are deleted
     // when a real team gets to their spot
     addTempTeams() {
-
         for (var i = 0; i < Object.keys(this.props.teams).length; ++i) {
             this.state.teams.push(this.props.teams[i].name);
         }
@@ -46,18 +56,13 @@ class Bracket extends React.Component {
         var round = []; // Array of components in the round
         var tempStart = start; // Offset from which the next match is calculated
 
-        for (var i = start; i < end - 2; i += 2) {
-            round.push(<Match topTeam={this.state.teams[i]} bottomTeam={this.state.teams[i + 1]} scoreChange={this.handleScoreChange} next={end - start + tempStart} />);
+        for (var i = start; i < end; i += 2) {
+            round.push(<span className="roundSpacer">&nbsp;</span>);
+            round.push(<Match className="" topTeam={this.state.teams[i]} bottomTeam={this.state.teams[i + 1]} scoreChange={this.handleScoreChange} next={end - start + tempStart} />);
             ++tempStart;
         }
 
-        // Checks if a free spot needs to be created
-        if ((end - start) % 2 !== 0) {
-            round.push(<Match topTeam={this.state.teams[i]} bottomTeam={""} scoreChange={this.handleScoreChange} next={end - start + tempStart} />);
-        }
-        else {
-            round.push(<Match topTeam={this.state.teams[i]} bottomTeam={this.state.teams[i + 1]} scoreChange={this.handleScoreChange} next={end - start + tempStart} />);
-        }
+        round.push(<span className="roundSpacer">&nbsp;</span>);
 
         return round;
     }
@@ -79,7 +84,12 @@ class Bracket extends React.Component {
 
         // Field with the tournament winner
         bracket.push(
-            <ul className="winner round">{this.state.teams[Object.keys(this.state.teams).length - 1]}</ul>
+            <ul className="winner round">
+                <Grid container direction="row" alignItems="center" justify="center">
+                    <img src="trophy.png" alt="Winner" width="46" height="46" />
+                    <Typography variant="h6" gutterBottom>{this.state.teams[Object.keys(this.state.teams).length - 1]}</Typography>
+                </Grid>
+            </ul>
         );
 
         return bracket;

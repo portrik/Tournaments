@@ -3,56 +3,57 @@
   flex-direction: row;
 }
 
-.delete
-{
+#teamButton {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.delete {
   cursor: pointer;
 }
 
-.listOfTeams
-{
-  margin-left: 5%;
-  margin-top: 5%;
+.toolBar {
+  margin-bottom: 1% !important;
+}
+
+.githubLink {
+  position: absolute;
+  right: 2%;
+}
+
+.bracketButton {
+  margin-top: 10px !important;
 }
 
 .round {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 200px;
   list-style: none;
   padding: 0;
 }
 
-.round .spacer {
-  flex-grow: 1;
+.winner {
+  text-decoration: underline;
+  text-emphasis: bold;
+  margin-left: 2%;
 }
 
-.round .spacer:first-child, .round .spacer:last-child {
-  flex-grow: .5;
-}
-
-.round .game-spacer {
-  flex-grow: 1;
-}
-
-li.game {
-  padding-left: 20px;
-}
-
-li.game span {
-  float: right;
-  margin-right: 5px;
-}
-
-li.game-top {
-  border-bottom: 1px solid #aaa;
-}
-
-li.game-spacer {
-  border-right: 1px solid #aaa;
-  min-height: 40px;
-}
-
-li.game-bottom {
+.matchWrapper {
   border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  flex-grow: 1;
+}
+
+.roundSpacer{
+  flex-grow: 1 !important;
+}
+
+.roundSpacer:first-child, .roundSpacer:last-child{
+  flex-grow: .5 !important;
+}
+
+.fillerRound{
+  margin-left: 2%;
 }

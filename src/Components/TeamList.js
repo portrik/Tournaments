@@ -2,6 +2,7 @@ import React from 'react';
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Delete from '@material-ui/icons/Delete'
+import { Grid, Typography, Card, CardContent } from '@material-ui/core';
 
 // Renders out the list of the teams
 class TeamList extends React.Component {
@@ -20,14 +21,23 @@ class TeamList extends React.Component {
         this.props.delete(key);
     }
 
+    // List of team is displayed in a Card component
+    // Only if the list of teams is not empty
     render() {
         var teams = this.props.teams;
         var listTeams = teams.map(this.createTeam);
 
         return (
-            <List className="theList">
-                {listTeams}
-            </List>
+            <Grid container direction="column" justify="center" alignItems="center" className="listOfTeams">
+                {Object.keys(this.props.teams).length > 0 ? <Card>
+                    <CardContent>
+                        <Typography variant="h4" gutterBottom>Selected Teams</Typography>
+                        <List className="theList">
+                            {listTeams}
+                        </List>
+                    </CardContent>
+                </Card> : null}
+            </Grid>
         );
     }
 }
