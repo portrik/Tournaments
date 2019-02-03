@@ -1,11 +1,11 @@
 {
-  "main.js": "/Tournaments/static/js/main.dda699e3.chunk.js",
-  "main.js.map": "/Tournaments/static/js/main.dda699e3.chunk.js.map",
-  "static/js/1.b9c45194.chunk.js": "/Tournaments/static/js/1.b9c45194.chunk.js",
-  "static/js/1.b9c45194.chunk.js.map": "/Tournaments/static/js/1.b9c45194.chunk.js.map",
+  "main.js": "/Tournaments/static/js/main.e53b1d51.chunk.js",
+  "main.js.map": "/Tournaments/static/js/main.e53b1d51.chunk.js.map",
+  "static/js/1.4ae814c7.chunk.js": "/Tournaments/static/js/1.4ae814c7.chunk.js",
+  "static/js/1.4ae814c7.chunk.js.map": "/Tournaments/static/js/1.4ae814c7.chunk.js.map",
   "runtime~main.js": "/Tournaments/static/js/runtime~main.23da14b3.js",
   "runtime~main.js.map": "/Tournaments/static/js/runtime~main.23da14b3.js.map",
   "index.html": "/Tournaments/index.html",
-  "precache-manifest.6155d1278457e70f8b2855751a396847.js": "/Tournaments/precache-manifest.6155d1278457e70f8b2855751a396847.js",
+  "precache-manifest.3b9aeee56a85c714be863cdcf861158f.js": "/Tournaments/precache-manifest.3b9aeee56a85c714be863cdcf861158f.js",
   "service-worker.js": "/Tournaments/service-worker.js"
 }
