@@ -48,14 +48,18 @@
   padding: 0;
 }
 
-.roundSpacer{
+.roundSpacer {
   flex-grow: 1 !important;
 }
 
-.roundSpacer:first-child, .roundSpacer:last-child{
+.roundSpacer:first-child, .roundSpacer:last-child {
   flex-grow: .5 !important;
 }
 
-.fillerRound{
+.fillerRound {
   margin-left: 2%;
+}
+
+.separator {
+  min-height: 40px;
 }

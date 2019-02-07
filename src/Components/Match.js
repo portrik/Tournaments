@@ -60,6 +60,7 @@ class Match extends React.Component {
         return (
             <Grid container direction="column" justify="space-between" alignItems="flex-end" className="matchWrapper">
                 <TextField variant="filled" label={this.props.topTeam} value={this.state.topScore} onChange={this.handleTopScoreChange} onBlur={this.handleScoreChange}/>
+                <span className="separator">&nbsp;</span>
                 {this.props.bottomTeam === "" ?
                     <TextField disabled label="Empty Seed" value={this.state.bottomScore}/> :
                     <TextField variant="filled" label={this.props.bottomTeam} value={this.state.bottomScore} onChange={this.handleBottomScoreChange}  onBlur={this.handleScoreChange}/>}

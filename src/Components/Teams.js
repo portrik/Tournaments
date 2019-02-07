@@ -89,6 +89,10 @@ class Teams extends React.Component {
     // Shows an error message in case not enough teams were selected
     handleCreateBracket(e) {
         if (Object.keys(this.state.teams).length > 1) {
+            for(var i = 1; i < Object.keys(this.state.teams).length; ++i)
+            {
+                
+            }
             this.setState({ showBracket: !this.state.showBracket });
         }
         else {

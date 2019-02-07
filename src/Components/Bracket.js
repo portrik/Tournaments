@@ -1,6 +1,7 @@
 import React from 'react';
 import Match from './Match';
 import { Typography, Grid } from '@material-ui/core';
+import Bye from './Byes';
 
 // Bracket is the main component of the whole app
 // It renders the tournament bracket and it also carries the logic of the app
