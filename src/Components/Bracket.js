@@ -15,33 +15,30 @@ class Bracket extends React.Component {
         this.state = {
             teams: [],
             numOfTeams: Object.keys(this.props.teams).length,
+            numOfByes: 0,
         }
 
         this.addTempTeams();
+
         this.createRound = this.createRound.bind(this);
         this.createBracket = this.createBracket.bind(this);
         this.handleScoreChange = this.handleScoreChange.bind(this);
-    }
-
-    // Calculates the number of byes games needed to fit a bracket
-    calculateByes() {
-        for (var i = 2; i < this.state.numOfTeams; i *= 2);
-
-        if (this.state.numOfTeams % i === 0) {
-            return 0;
-        }
-        else {
-            return this.state.numOfTeams - (i / 2);
-        }
+        this.handleByes = this.handleByes.bind(this);
     }
 
     // To make the whole app more user friendly
     // addTempTeams creates temporary teams, which are deleted
     // when a real team gets to their spot
     addTempTeams() {
+
         for (var i = 0; i < Object.keys(this.props.teams).length; ++i) {
             this.state.teams.push(this.props.teams[i].name);
         }
+
+        for (i = 1; i < Object.keys(this.props.teams).length; i *= 2);
+
+        // eslint-disable-next-line
+        this.state.numOfByes = Math.abs(Object.keys(this.props.teams).length - i);
 
         for (i = 1; i <= (this.state.numOfTeams - 1); ++i) {
             this.state.teams.push("Winner of match #" + i);
@@ -110,12 +107,48 @@ class Bracket extends React.Component {
         this.setState({ teams: temparray });
     }
 
+    handleByes(winners) {
+        var newNum = this.state.numOfTeams - this.state.numOfByes;
+        var newTeams = [];
+
+        for(var i = 0; i < (this.state.numOfTeams * 2); ++i)
+        {
+            if(winners.includes(this.props.teams[i]))
+            {
+                newTeams.push(this.props.teams[i]);
+            }
+        }
+
+        for(i = (this.state.numOfByes * 2); i < Object.keys(this.props.teams); ++i)
+        {
+            newTeams.push(this.props.teams[i]);
+        }
+
+        for (i = 1; i <= (newNum - 1); ++i) {
+            newTeams.push("Winner of match #" + i);
+        }
+        
+        this.setState({
+            teams: newTeams,
+            numOfByes: 0,
+            numOfTeams: newNum
+        });
+
+        this.forceUpdate();
+    }
+
     render() {
         var bracket = this.createBracket();
 
+        console.log(this.state.numOfByes);
+
         return (
-            <div id="bracket">
-                {bracket}
+            <div>
+                {(this.state.numOfByes > 0) ?
+                    <Bye teams={this.state.teams} numOfMatches={this.state.numOfByes} onDone={this.handleByes} /> :
+                    <div id="bracket">
+                        {bracket}
+                    </div>}
             </div>
         );
     }
