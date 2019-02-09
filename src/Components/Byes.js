@@ -3,7 +3,6 @@ import { Grid, TextField, ListItem, Card, Typography, CardContent, List, Button 
 
 
 // Bye serves as a 0 round to make the number of teams compatible with the bracket system
-// It connects two matches together, where from 3 teams one progresses as the winner
 class Bye extends React.Component {
     constructor(props) {
         super(props);
@@ -16,30 +15,28 @@ class Bye extends React.Component {
         this.handleByeResults = this.handleByeResults.bind(this);
     }
 
-    handleByeResults(e)
-    {
+    // Handles the sending the list of winners to the parent component
+    // It checks, if all winners are set 
+    handleByeResults(e) {
         e.preventDefault();
         var areEmpty = false;
-        console.log(this.state.winners);
 
-        this.state.winners.forEach(function(team)
-        {
-            if(team === "")
-            {
+        this.state.winners.forEach(function (team) {
+            if (team === "") {
                 areEmpty = true;
             }
         });
 
-        if(areEmpty)
-        {
+        if (areEmpty) {
             alert("All bye round matches must have a clear winner!");
         }
-        else
-        {
+        else {
             this.props.onDone(this.state.winners);
         }
     }
 
+    // After all of the props are passed
+    // This function creates an empty list of winners
     componentDidMount() {
         var newWinners = [];
 
@@ -51,29 +48,29 @@ class Bye extends React.Component {
     }
 
     // Decides, if the score change should be handled here or passed to parent
+    // Team is the name of the winning team
+    // Index is position in the list of winners
     handleScoreChange(team, index) {
         var newWinners = [];
 
-        for(var i = 0; i < Object.keys(this.state.winners).length; ++i)
-        {
-            if(index === i)
-            {
+        for (var i = 0; i < Object.keys(this.state.winners).length; ++i) {
+            if (index === i) {
                 newWinners.push(team);
             }
-            else
-            {
+            else {
                 newWinners.push(this.state.winners[i]);
             }
         }
 
-        this.setState({winners: newWinners});
+        this.setState({ winners: newWinners });
     }
 
+    // Creates all the Bye round matches
     createByes() {
         var matches = [];
 
         for (var i = 0; i < this.props.numOfMatches; i += 2) {
-            matches.push(<ByeRound index={i} topTeam={this.props.teams[i]} bottomTeam={this.props.teams[i + 1]} onScoreChange={this.handleScoreChange} />);
+            matches.push(<ByeRound index={Math.floor(i / 2)} topTeam={this.props.teams[i]} bottomTeam={this.props.teams[i + 1]} onScoreChange={this.handleScoreChange} />);
         }
 
         return matches;
@@ -100,6 +97,10 @@ class Bye extends React.Component {
     }
 }
 
+// Bye round is a subcomponent of Byes
+// It houses the logic of a bye round match
+// It is structured similiarly to Match.js
+// Only difference is the rendering style - Match places team vertically, while ByeRound is horizontal
 class ByeRound extends React.Component {
     constructor(props) {
         super(props);

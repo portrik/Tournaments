@@ -31,7 +31,10 @@ When the user is done with adding new teams, it passes the names to Bracket.js, 
 ### Bracket.js
 
 Bracket houses the main logic of the app. When passed the team names, it creates filler team names (Winner of match #) and divides them into rounds.
-In case the number of selected teams is odd, bye rounds are positioned at the start of the bracket to fit the bracket format.
+
+In case the number of selected teams is odd, bye round is generated. A number of teams are eliminated in the bye round to make the number of teams fit the spider system.
+
+The user than chooses winners through inputing the game results a winner.
 
 
 ## Input data
@@ -43,13 +46,16 @@ In case the number of selected teams is odd, bye rounds are positioned at the st
 * Team name can be deleted with the trashcan button next to the name
 * Bracket can be created with the button labeled *Create Tournament*
 
+### Bye round
+
+* A winner of the match is chosen through inputing a game result
+* Only a team with higher score is chosen as a winner
+* Draws are not possible
+* The bye round can be ended by pressing the *Confirm Bye Round Results* button
+
 ### Choosing winners
 
 * All matches are divided into the tournament spider bracket
 * Unplayed matches have no winner
 * Winner will be chosen after both scores are set
 * Score can be changed by clicking on the input field with the number (Scores can be between 0 and 1 000)
-
-## Conclusion
-
-//TODO

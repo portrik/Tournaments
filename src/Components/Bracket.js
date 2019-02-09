@@ -107,45 +107,43 @@ class Bracket extends React.Component {
         this.setState({ teams: temparray });
     }
 
+    // Handles creation of a new list of teams after a bye round is played
+    // The loosers are discarded
+    // Winners is a list of teams that advanced from the bye round
     handleByes(winners) {
-        var newNum = this.state.numOfTeams - this.state.numOfByes;
+        var newNum = this.state.numOfTeams - Math.round((this.state.numOfTeams - this.state.numOfByes) / 2);
         var newTeams = [];
 
-        for(var i = 0; i < (this.state.numOfTeams * 2); ++i)
-        {
-            if(winners.includes(this.props.teams[i]))
-            {
-                newTeams.push(this.props.teams[i]);
+        for (var i = 0; i < (this.state.numOfTeams - this.state.numOfByes); ++i) {
+            if (winners.includes(this.props.teams[i].name)) {
+                newTeams.push(this.props.teams[i].name);
             }
         }
 
-        for(i = (this.state.numOfByes * 2); i < Object.keys(this.props.teams); ++i)
-        {
-            newTeams.push(this.props.teams[i]);
+        for (i = (this.state.numOfTeams - this.state.numOfByes); i < this.state.numOfTeams; ++i) {
+            newTeams.push(this.props.teams[i].name);
         }
 
         for (i = 1; i <= (newNum - 1); ++i) {
             newTeams.push("Winner of match #" + i);
         }
-        
+
         this.setState({
             teams: newTeams,
             numOfByes: 0,
             numOfTeams: newNum
         });
 
-        this.forceUpdate();
+        console.log(newTeams)
     }
 
     render() {
         var bracket = this.createBracket();
 
-        console.log(this.state.numOfByes);
-
         return (
             <div>
                 {(this.state.numOfByes > 0) ?
-                    <Bye teams={this.state.teams} numOfMatches={this.state.numOfByes} onDone={this.handleByes} /> :
+                    <Bye teams={this.state.teams} numOfMatches={Math.round((this.state.numOfTeams - this.state.numOfByes) / 2)} onDone={this.handleByes} /> :
                     <div id="bracket">
                         {bracket}
                     </div>}

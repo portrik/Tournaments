@@ -49,7 +49,7 @@ class Match extends React.Component {
         if (Number(this.state.topScore) > Number(this.state.bottomScore)) {
             this.props.scoreChange(this.props.topTeam, this.props.next);
         }
-        else if(Number(this.state.bottomScore) > Number(this.state.topScore)) {
+        else if (Number(this.state.bottomScore) > Number(this.state.topScore)) {
             this.props.scoreChange(this.props.bottomTeam, this.props.next);
         }
     }
@@ -59,11 +59,11 @@ class Match extends React.Component {
     render() {
         return (
             <Grid container direction="column" justify="space-between" alignItems="flex-end" className="matchWrapper">
-                <TextField variant="filled" label={this.props.topTeam} value={this.state.topScore} onChange={this.handleTopScoreChange} onBlur={this.handleScoreChange}/>
+                <TextField variant="filled" label={this.props.topTeam} value={this.state.topScore} onChange={this.handleTopScoreChange} onBlur={this.handleScoreChange} />
                 <span className="separator">&nbsp;</span>
                 {this.props.bottomTeam === "" ?
-                    <TextField disabled label="Empty Seed" value={this.state.bottomScore}/> :
-                    <TextField variant="filled" label={this.props.bottomTeam} value={this.state.bottomScore} onChange={this.handleBottomScoreChange}  onBlur={this.handleScoreChange}/>}
+                    <TextField disabled label="Empty Seed" value={this.state.bottomScore} /> :
+                    <TextField variant="filled" label={this.props.bottomTeam} value={this.state.bottomScore} onChange={this.handleBottomScoreChange} onBlur={this.handleScoreChange} />}
             </Grid>
         );
     }
