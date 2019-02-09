@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "b791ba28d7fcbd5e850f",
-    "url": "/Tournaments/static/js/main.b791ba28.chunk.js"
+    "revision": "c7fc748127c920b59a47",
+    "url": "/Tournaments/static/js/main.c7fc7481.chunk.js"
   },
   {
     "revision": "a107a1c9e2006108829c",
@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/Tournaments/static/js/runtime~main.23da14b3.js"
   },
   {
-    "revision": "3a8dc03a0e2a98640c6db5c505cdccd4",
+    "revision": "6a42c0c32cdfc57a96e30afa93af2760",
     "url": "/Tournaments/index.html"
   }
 ];
