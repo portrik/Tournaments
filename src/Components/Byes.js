@@ -31,6 +31,7 @@ class Bye extends React.Component {
             alert("All bye round matches must have a clear winner!");
         }
         else {
+            console.log(this.state.winners);
             this.props.onDone(this.state.winners);
         }
     }
@@ -69,7 +70,7 @@ class Bye extends React.Component {
     createByes() {
         var matches = [];
 
-        for (var i = 0; i < this.props.numOfMatches; i += 2) {
+        for (var i = 0; i < (this.props.numOfMatches * 2); i += 2) {
             matches.push(<ByeRound index={Math.floor(i / 2)} topTeam={this.props.teams[i]} bottomTeam={this.props.teams[i + 1]} onScoreChange={this.handleScoreChange} />);
         }
 

@@ -37,8 +37,15 @@ class Bracket extends React.Component {
 
         for (i = 1; i < Object.keys(this.props.teams).length; i *= 2);
 
-        // eslint-disable-next-line
-        this.state.numOfByes = Math.abs(Object.keys(this.props.teams).length - i);
+        if (i === Object.keys(this.props.teams).length) {
+            // eslint-disable-next-line
+            this.state.numOfByes = 0;
+        }
+        else {
+
+            // eslint-disable-next-line
+            this.state.numOfByes = Math.abs(Object.keys(this.props.teams).length - (i / 2));
+        }
 
         for (i = 1; i <= (this.state.numOfTeams - 1); ++i) {
             this.state.teams.push("Winner of match #" + i);
@@ -111,16 +118,16 @@ class Bracket extends React.Component {
     // The loosers are discarded
     // Winners is a list of teams that advanced from the bye round
     handleByes(winners) {
-        var newNum = this.state.numOfTeams - Math.round((this.state.numOfTeams - this.state.numOfByes) / 2);
+        var newNum = this.state.numOfTeams - this.state.numOfByes;
         var newTeams = [];
 
-        for (var i = 0; i < (this.state.numOfTeams - this.state.numOfByes); ++i) {
+        for (var i = 0; i < (this.state.numOfByes * 2); ++i) {
             if (winners.includes(this.props.teams[i].name)) {
                 newTeams.push(this.props.teams[i].name);
             }
         }
 
-        for (i = (this.state.numOfTeams - this.state.numOfByes); i < this.state.numOfTeams; ++i) {
+        for (i = (this.state.numOfByes * 2); i < this.state.numOfTeams; ++i) {
             newTeams.push(this.props.teams[i].name);
         }
 
@@ -133,17 +140,16 @@ class Bracket extends React.Component {
             numOfByes: 0,
             numOfTeams: newNum
         });
-
-        console.log(newTeams)
     }
 
     render() {
         var bracket = this.createBracket();
+        console.log(this.state.numOfByes);
 
         return (
             <div>
                 {(this.state.numOfByes > 0) ?
-                    <Bye teams={this.state.teams} numOfMatches={Math.round((this.state.numOfTeams - this.state.numOfByes) / 2)} onDone={this.handleByes} /> :
+                    <Bye teams={this.state.teams} numOfMatches={this.state.numOfByes} onDone={this.handleByes} /> :
                     <div id="bracket">
                         {bracket}
                     </div>}
