@@ -44,7 +44,7 @@ class Bracket extends React.Component {
         else {
 
             // eslint-disable-next-line
-            this.state.numOfByes = Math.abs(Object.keys(this.props.teams).length - (i / 2));
+            this.state.numOfByes = Object.keys(this.props.teams).length - (i / 2);
         }
 
         for (i = 1; i <= (this.state.numOfTeams - 1); ++i) {
@@ -144,7 +144,6 @@ class Bracket extends React.Component {
 
     render() {
         var bracket = this.createBracket();
-        console.log(this.state.numOfByes);
 
         return (
             <div>

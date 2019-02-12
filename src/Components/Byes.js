@@ -31,7 +31,6 @@ class Bye extends React.Component {
             alert("All bye round matches must have a clear winner!");
         }
         else {
-            console.log(this.state.winners);
             this.props.onDone(this.state.winners);
         }
     }
