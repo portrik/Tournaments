@@ -1,11 +1,11 @@
 {
-  "main.js": "/Tournaments/static/js/main.bf46d40b.chunk.js",
-  "main.js.map": "/Tournaments/static/js/main.bf46d40b.chunk.js.map",
+  "main.js": "/Tournaments/static/js/main.0919627a.chunk.js",
+  "main.js.map": "/Tournaments/static/js/main.0919627a.chunk.js.map",
   "static/js/1.a107a1c9.chunk.js": "/Tournaments/static/js/1.a107a1c9.chunk.js",
   "static/js/1.a107a1c9.chunk.js.map": "/Tournaments/static/js/1.a107a1c9.chunk.js.map",
   "runtime~main.js": "/Tournaments/static/js/runtime~main.23da14b3.js",
   "runtime~main.js.map": "/Tournaments/static/js/runtime~main.23da14b3.js.map",
   "index.html": "/Tournaments/index.html",
-  "precache-manifest.362404f4494eba37b73f50c901979845.js": "/Tournaments/precache-manifest.362404f4494eba37b73f50c901979845.js",
+  "precache-manifest.5a654e8307e3ebf45579643e4c80d4fb.js": "/Tournaments/precache-manifest.5a654e8307e3ebf45579643e4c80d4fb.js",
   "service-worker.js": "/Tournaments/service-worker.js"
 }
